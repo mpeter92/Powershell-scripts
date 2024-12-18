@@ -8,7 +8,10 @@ $ClientSecret = xxxxxxxxxxxxxx"
 $TokenUrl = "https://login.microsoftonline.com/$TenantID/oauth2/V2.0/token"
 $Scope = "https://graph.microsoft.com/.default"
 
-$mailbox = "mailbox@domain.com"​​
+$mailbox = "mailbox@domain.com"
+$recipients = "user@domain.com"
+$emailsubject = " RE: Email subject"
+$emailbodycontent = " This is the email body content "
 
 <#######################
 Generate a bearer token
@@ -35,15 +38,15 @@ API Call to send email via Microsoft Graph
 $apiquery = "https://graph.microsoft.com/v1.0/users/$mailbox/sendMail"
 ​
 <#########################
-Email content. Edit the Subject and Content.
+Email content. Edit the Subject and Conten
 #########################>
 
 $emailBody = @{
     message = @{
-        subject = "Meet for lunch?"
+        subject = $emailsubject
         body = @{
             contentType = "Text"
-            content = "The new cafeteria is open."
+            content = $emailbodycontent
         }
         toRecipients = @(@{ emailAddress = @{ address = "user1@email.local" } })
         ccRecipients = @(@{ emailAddress = @{ address = "user2@email.local" } })
