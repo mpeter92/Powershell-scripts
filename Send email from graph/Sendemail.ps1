@@ -10,35 +10,34 @@ $Scope = "https://graph.microsoft.com/.default"
 
 $mailbox = "mailbox@domain.com"
 $recipients = "user@domain.com"
+$CCrecipients = "user@domain.com"
 $emailsubject = " RE: Email subject"
 $emailbodycontent = " This is the email body content "
 
 <#######################
 Generate a bearer token
 #######################>
-​
-$TokenUrl = "https://login.microsoftonline.com/$TenantID/oauth2/v2.0/token"
-​
+
 $TokenRequestBody = @{
   client_id     = $ClientID
   client_secret = $ClientSecret
   scope         = "https://graph.microsoft.com/.default"
   grant_type    = "client_credentials"
 }
-​
+
 $TokenResponse = Invoke-RestMethod -Uri $TokenUrl -Method POST -Body $TokenRequestBody -ContentType "application/x-www-form-urlencoded"
-​
+
 $SecretToken = $TokenResponse.access_token
 $SecretToken
-​
+
 <#######################
 API Call to send email via Microsoft Graph
 #######################>
-​
+
 $apiquery = "https://graph.microsoft.com/v1.0/users/$mailbox/sendMail"
-​
+
 <#########################
-Email content. Edit the Subject and Conten
+Email content. Edit the Subject and Content
 #########################>
 
 $emailBody = @{
@@ -48,17 +47,16 @@ $emailBody = @{
             contentType = "Text"
             content = $emailbodycontent
         }
-        toRecipients = @(@{ emailAddress = @{ address = "user1@email.local" } })
-        ccRecipients = @(@{ emailAddress = @{ address = "user2@email.local" } })
+        toRecipients = @(@{ emailAddress = @{ address = $recipients } })
+        ccRecipients = @(@{ emailAddress = @{ address = $CCrecipients } })
     }
     saveToSentItems = $false
 }
-​
+
 <###############################
 Convert the email body to JSON
 ################################>
 $emailBodyJson = $emailBody | ConvertTo-Json -Depth 10
-​
 
 <###############################
 Define headers
@@ -67,7 +65,7 @@ $Headers = @{
   "Authorization" = "Bearer $($SecretToken)"
   "Content-type"  = "application/json"
 }
-​
+
 <###############################
 Send the email
 ################################>
