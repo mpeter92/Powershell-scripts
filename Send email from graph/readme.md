@@ -7,9 +7,10 @@
 * Create a client secret and save the Value. This value only appears once when created.  !! Not the Secret ID !!
 * ![image](https://github.com/user-attachments/assets/a80d142e-1e5a-4725-bcd0-42ec29304fdc)
 * Take note of the application id also
+<br />
 
 ## Step 2 - give the application permission to send from a mailbox.
 * Copy the script from ExchangePermissions.ps1 powershell ISE and enter your AppID and mailbox we are sending from.
 * ![image](https://github.com/user-attachments/assets/c348adf2-7849-4ecc-817c-ecf80b320736)
-* 
+<br />
 
