@@ -8,6 +8,14 @@ $ClientSecret = xxxxxxxxxxxxxx"
 $TokenUrl = "https://login.microsoftonline.com/$TenantID/oauth2/V2.0/token"
 $Scope = "https://graph.microsoft.com/.default"
 
+<#####################################
+Enter the email address of the mailbox from which the email will be sent, 
+the primary recipient's email address, 
+the CC recipient's email address, 
+the subject of the email, 
+and the body content of the email.
+#####################################>
+
 $mailbox = "mailbox@domain.com"
 $recipients = "user@domain.com"
 $CCrecipients = "user@domain.com"
