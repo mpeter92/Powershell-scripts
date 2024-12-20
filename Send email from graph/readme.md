@@ -14,4 +14,5 @@
 * ![image](https://github.com/user-attachments/assets/c348adf2-7849-4ecc-817c-ecf80b320736)
 <br />
 
-** Step 3 - Update the script with your 
+** Step 3 - Update the script and send.
+
