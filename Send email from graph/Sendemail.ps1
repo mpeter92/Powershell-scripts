@@ -4,7 +4,7 @@ Enter the information below from your environment.
 ​
 $TenantID = "xxxxxxxx"
 $ClientID = "xxxxxxxxxxxxxxx"
-$ClientSecret = xxxxxxxxxxxxxx"
+$ClientSecret = "xxxxxxxxxxxxxx"
 $TokenUrl = "https://login.microsoftonline.com/$TenantID/oauth2/V2.0/token"
 $Scope = "https://graph.microsoft.com/.default"
 
