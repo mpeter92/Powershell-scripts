@@ -9,8 +9,9 @@
 * Take note of the application id also
 <br />
 
-## Step 2 - give the application permission to send from a mailbox.
+## Step 2 - Give the application permission to send from a mailbox.
 * Copy the script from ExchangePermissions.ps1 powershell ISE and enter your AppID and mailbox we are sending from.
 * ![image](https://github.com/user-attachments/assets/c348adf2-7849-4ecc-817c-ecf80b320736)
 <br />
 
+** Step 3 - Update the script with your 
