@@ -6,4 +6,5 @@
   - mail.readbasic.all
 * Create a client secret and save it as we will need to enter it in the script
 
-## Step 2 - 
+## Step 2 - give the application permission to send from a mailbox.
+* 
