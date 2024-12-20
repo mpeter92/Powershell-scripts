@@ -36,7 +36,6 @@ $TokenRequestBody = @{
 $TokenResponse = Invoke-RestMethod -Uri $TokenUrl -Method POST -Body $TokenRequestBody -ContentType "application/x-www-form-urlencoded"
 
 $SecretToken = $TokenResponse.access_token
-$SecretToken
 
 <#######################
 API Call to send email via Microsoft Graph
