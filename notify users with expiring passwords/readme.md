@@ -39,8 +39,9 @@ has been advised of the possibility of such damages.
 * Copy the notify.ps1 script to powershell ISE.
 * Enter the applicaiton information collected in the previous steps.
 * Enter the email address of the mailbox from which the email will be sent on line 11
-* 
-  <br />  ![image](https://github.com/user-attachments/assets/76d73038-c8b0-4d35-a883-cc966dc55290)
+* The script is set to 90 days password expiration. you can edit this to match your environments expiration.
+  <br />  ![image](https://github.com/user-attachments/assets/7c5ddd42-5cd7-49dc-8c90-b4a3418d345e)
+
   
 
 
