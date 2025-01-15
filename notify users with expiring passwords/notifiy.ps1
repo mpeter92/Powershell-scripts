@@ -1,3 +1,6 @@
+<#############################################
+Enter the information below from your environment.
+#############################################>
 $TenantID = "xxxxxxxxxxxxxxxxxxxxxx"
 $ClientID = "xxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $ClientSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -7,15 +10,16 @@ $domainname = "domain.com"
 
 $mailbox = "info@domain.com"
 
-# Define the password expiry threshold in days
+<################################
+Define the password expiry threshold in days
+################################>
+
 $PasswordExpiryThreshold = 90
 $NotificationThreshold = 14
 
-#######################
-# Generate a bearer token
-#######################
-
-$TokenUrl = "https://login.microsoftonline.com/$domainname/oauth2/v2.0/token"
+<#######################
+Generate a bearer token
+#######################>
 
 $TokenRequestBody = @{
   client_id     = $ClientID
@@ -26,16 +30,13 @@ $TokenRequestBody = @{
 
 $TokenResponse = Invoke-RestMethod -Uri $TokenUrl -Method POST -Body $TokenRequestBody -ContentType "application/x-www-form-urlencoded"
 
-
-
-# Store the token properly
 $SecretToken = $TokenResponse.access_token
-$SecretToken
 
 
+<############################################
+ Get all users with their password policies and last password change date
+############################################>
 
-############################################
-# Get all users with their password policies and last password change date
 $users = Get-MgUser -All -Property UserPrincipalName, PasswordPolicies, LastPasswordChangeDateTime
 
 # Initialize an array to store users with soon-to-expire passwords
@@ -96,6 +97,10 @@ foreach ($user in $soonToExpireUsers) {
         }
         saveToSentItems = $false
     }
+
+<##############################
+Send the users the email.
+###############################>
 
     $apiquery = "https://graph.microsoft.com/v1.0/users/$mailbox/sendMail"
     $emailBodyJson = $MailParams | ConvertTo-Json -Depth 10

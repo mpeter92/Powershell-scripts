@@ -37,7 +37,8 @@ has been advised of the possibility of such damages.
 
 ## Step 3 - Update the script and send.
 * Copy the notify.ps1 script to powershell ISE.
-* Enter the email address of the mailbox from which the email will be sent, the primary recipient's email address, the CC recipient's email address, the subject of the email, and the body content of the email
+* Enter the email address of the mailbox from which the email will be sent on line 8
+* 
   <br />  
 
 
