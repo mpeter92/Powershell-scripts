@@ -15,7 +15,6 @@ Define the password expiry threshold in days
 ################################>
 
 $PasswordExpiryThreshold = 90
-$NotificationThreshold = 14
 
 <#######################
 Generate a bearer token
